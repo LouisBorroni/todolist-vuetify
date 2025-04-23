@@ -1,3 +1,17 @@
+<script lang="ts" setup>
+import type { Task } from '@/types/Task';
+
+defineProps<{
+  tasks: Task[];
+}>();
+
+defineEmits<{
+  (e: 'delete-task', id: number): void;
+  (e: 'toggle-done', id: number): void;
+  (e: 'edit-task', task: Task): void;
+}>();
+</script>
+
 <template>
   <v-container>
     <v-row dense>
@@ -47,20 +61,6 @@
     </v-row>
   </v-container>
 </template>
-
-<script lang="ts" setup>
-import type { Task } from '@/types/Task';
-
-defineProps<{
-  tasks: Task[];
-}>();
-
-defineEmits<{
-  (e: 'delete-task', id: number): void;
-  (e: 'toggle-done', id: number): void;
-  (e: 'edit-task', task: Task): void;
-}>();
-</script>
 
 <style scoped>
 .task-card {

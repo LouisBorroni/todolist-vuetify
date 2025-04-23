@@ -1,20 +1,3 @@
-<template>
-  <v-dialog v-model="visible" persistent max-width="600px">
-    <v-card>
-      <v-card-title>Modifier la tâche</v-card-title>
-      <v-card-text>
-        <v-text-field v-model="localTask.title" label="Titre" />
-        <v-textarea v-model="localTask.description" label="Description" />
-      </v-card-text>
-      <v-card-actions>
-        <v-spacer />
-        <v-btn color="primary" @click="save">Enregistrer</v-btn>
-        <v-btn color="grey" @click="close">Annuler</v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
-</template>
-
 <script lang="ts" setup>
 import { ref, watch } from 'vue';
 import type { Task } from '@/types/Task';
@@ -50,3 +33,21 @@ function close() {
   emit('update:modelValue', false);
 }
 </script>
+
+<template>
+  <v-dialog v-model="visible" persistent max-width="600px">Z
+    <v-card>
+      <v-card-title>Modifier la tâche</v-card-title>
+      <v-card-text>
+        <v-text-field v-model="localTask.title" label="Titre" />
+        <v-textarea v-model="localTask.description" label="Description" />
+      </v-card-text>
+      <v-card-actions>
+        <v-spacer />
+        <v-btn color="primary" @click="save">Enregistrer</v-btn>
+        <v-btn color="grey" @click="close">Annuler</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+</template>
+

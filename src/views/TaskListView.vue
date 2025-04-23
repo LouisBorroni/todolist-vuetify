@@ -1,35 +1,3 @@
-<template>
-  <v-container>
-    <h1 class="text-h4 mb-4">Liste des Tâches</h1>
-    <v-row class="mb-4" align="center" justify="space-between">
-      <v-col cols="12" md="6">
-        <v-text-field v-model="search" label="Rechercher une tâche" />
-      </v-col>
-      <v-col cols="12" md="4">
-        <v-select v-model="sortMode" :items="['Date', 'État']" label="Trier en fonction de" />
-      </v-col>
-    </v-row>
-    <TaskList
-      :tasks="filteredTasks"
-      @delete-task="confirmDelete"
-      @toggle-done="toggleDone"
-      @edit-task="editTask"
-    />
-    <Dialog v-model="editDialog" :task="selectedTask" @save-task="updateTask" />
-    <v-dialog v-model="deleteDialog" persistent max-width="400px">
-      <v-card>
-        <v-card-title>Confirmation de suppression</v-card-title>
-        <v-card-text>Etes-vous sûr(e) de supprimer cette tâche ?</v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn color="grey" @click="deleteDialog = false">Annuler</v-btn>
-          <v-btn color="red" @click="deleteTask">Supprimer</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-  </v-container>
-</template>
-
 <script lang="ts" setup>
 import { ref, computed, onMounted, watch } from 'vue';
 import type { Task } from '@/types/Task';
@@ -104,3 +72,37 @@ function updateTask(updated: Task) {
   }
 }
 </script>
+
+<template>
+  <v-container>
+    <h1 class="text-h4 mb-4">Liste des Tâches</h1>
+    <v-row class="mb-4" align="center" justify="space-between">
+      <v-col cols="12" md="6">
+        <v-text-field v-model="search" label="Rechercher une tâche" />
+      </v-col>
+      <v-col cols="12" md="4">
+        <v-select v-model="sortMode" :items="['Date', 'État']" label="Trier en fonction de" />
+      </v-col>
+    </v-row>
+    <TaskList
+      :tasks="filteredTasks"
+      @delete-task="confirmDelete"
+      @toggle-done="toggleDone"
+      @edit-task="editTask"
+    />
+    <Dialog v-model="editDialog" :task="selectedTask" @save-task="updateTask" />
+    <v-dialog v-model="deleteDialog" persistent max-width="400px">
+      <v-card>
+        <v-card-title>Confirmation de suppression</v-card-title>
+        <v-card-text>Etes-vous sûr(e) de supprimer cette tâche ?</v-card-text>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn color="grey" @click="deleteDialog = false">Annuler</v-btn>
+          <v-btn color="red" @click="deleteTask">Supprimer</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-container>
+</template>
+
+

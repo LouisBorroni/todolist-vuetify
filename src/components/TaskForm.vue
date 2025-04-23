@@ -1,11 +1,3 @@
-<template>
-  <v-form @submit.prevent="submitForm">
-    <v-text-field v-model="title" label="Titre de la tâche" required />
-    <v-textarea v-model="description" label="Description de la tâche" required />
-    <v-btn type="submit" color="secondary">Ajouter la tâche</v-btn>
-  </v-form>
-</template>
-
 <script lang="ts" setup>
 import { ref } from 'vue';
 
@@ -25,3 +17,13 @@ function submitForm() {
   description.value = '';
 }
 </script>
+
+<template>
+  <v-form @submit.prevent="submitForm">
+    <v-text-field v-model="title" label="Titre de la tâche" required />
+    <v-textarea v-model="description" label="Description de la tâche" required />
+    <v-btn type="submit" color="secondary">Ajouter la tâche</v-btn>
+  </v-form>
+</template>
+
+

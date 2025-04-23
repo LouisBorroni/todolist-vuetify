@@ -1,10 +1,3 @@
-<template>
-  <v-container>
-    <h1 class="text-h4 mb-4">Accueil - Ajout</h1>
-    <TaskForm @submit-task="addTask" />
-  </v-container>
-</template>
-
 <script lang="ts" setup>
 import { ref, computed, onMounted, watch } from 'vue';
 import type { Task } from '@/types/Task';
@@ -37,3 +30,11 @@ function addTask(task: { title: string; description: string }) {
   });
 }
 </script>
+
+<template>
+  <v-container>
+    <h1 class="text-h4 mb-4">Accueil - Ajout</h1>
+    <TaskForm @submit-task="addTask" />
+  </v-container>
+</template>
+
